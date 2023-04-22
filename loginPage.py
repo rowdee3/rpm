@@ -4,6 +4,8 @@
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import ttk
+from databaseHandler import pwd_context
+import createAccountPage
 
 #general colour scheme
 ctk.set_appearance_mode("dark")
@@ -18,8 +20,10 @@ class App(ctk.CTk):
     def loginHandler(self):
         pass
 
+
     def createAccount(self):
-        pass
+        App.destroy(self)
+        createAccountPage.runtime()
 
     def __init__(self):
         super().__init__()
@@ -50,7 +54,6 @@ class App(ctk.CTk):
         self.createAccountButton = ctk.CTkButton(self, text="Create Account", command=self.createAccount)
         self.createAccountButton.grid(row=5, column=2, pady=20, padx=20)
 
-
-if __name__ == '__main__':
+def runtime():
     app = App()
     app.mainloop()
